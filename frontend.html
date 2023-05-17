@@ -13,7 +13,6 @@
 
     <div class="container">
         
-
         <div class="row"> 
             <div class="col s12">
                     <div class="col s12">
@@ -33,7 +32,6 @@
                             <label>ID</label>
                         </div>
                     </div>
-
 
                     <div class="row">
                         <div class="input-field col s6">                            
@@ -62,8 +60,7 @@
                             name="action">Submit
                             <i class="material-icons right">send</i>
                     </button>
-
-                    
+        
                   </form>
             </div>
 
@@ -88,12 +85,8 @@
             </div>
         </div>
       
-
-
     </div>
       
-      
-
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 
@@ -161,8 +154,6 @@
 
             $('input[type="text"]').val('');
 
-
-
             $('#testbtn').click( function(event) {
                 event.preventDefault();
                 M.Toast.dismissAll();
@@ -171,10 +162,6 @@
 
                 console.log(JSON.stringify(formData));
 
-
-               
-
-               
                     // send AJAX request
                     $.ajax({
                             url: '/cgi-bin/get.o',
@@ -193,17 +180,13 @@
 
                                     $("#lstcontainer").html(html);
                                   
-
                                     var toastHTML = '<i class="material-icons">search</i>&nbsp;<span>' + response.data.length + ' record(s) was retrieved.</span>';
                                     M.toast({html: toastHTML , classes: 'rounded'});
 
-
-                               
                                     $('#btnclear').click( function(event) {
                                         event.preventDefault();                                       
                                         $("#logslist").remove();
                                     });
-
 
                                 }  else if (response.status === "error") {
                                     console.log(response.message)
@@ -248,13 +231,11 @@
                                     var toastHTML = '<i class="material-icons">error_outline</i>&nbsp;<span>' + response.message + '</span>';
                                     M.toast({html: toastHTML , classes: 'rounded'});                                  
 
-
                                 }               
                             },
                             error: function(xhr, status, error) {
                                 console.log(xhr.responseText);
                             }
-
 
                         });                 
             });
