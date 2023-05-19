@@ -1,0 +1,1 @@
+INSERT INTO contacts (name, email, phone, address, city, province, message) VALUES ('test name', 'test@email.com', '12345678910', 'test address', 'test city', 'test province', 'test message');

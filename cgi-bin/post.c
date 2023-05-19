@@ -28,7 +28,7 @@ void create_json_array(Report contacts) {
     json_t *parent = json_object();
 
     char *response_data;
-    
+
     json_object_set_new(obj, "name", json_string(contacts.name));
     json_object_set_new(obj, "email", json_string(contacts.email));
     json_object_set_new(obj, "phone", json_string(contacts.phone));
@@ -40,7 +40,7 @@ void create_json_array(Report contacts) {
     json_array_append_new(arr, obj);
 
     json_object_set_new(parent, "status", json_string("success"));
-    json_object_set_new(parent, "message", json_string("Successfully inserted the data.."));
+    json_object_set_new(parent, "message", json_string("Successfully inserted the data."));
     json_object_set_new(parent, "data", arr);
 
     response_data = json_dumps(parent,  JSON_INDENT(4)); 
@@ -119,7 +119,7 @@ int main(void) {
    sqlite3_stmt *stmt;
    int dbres;
 
-   const char *sql_statement = "insert into contacts values(?,?,?,?,?,?,?);";
+   const char *sql_statement = "INSERT INTO contacts (name,email,phone,address,city,province,message) VALUES (?,?,?,?,?,?,?);";
 
 
    // function call
