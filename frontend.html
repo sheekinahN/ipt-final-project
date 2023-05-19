@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Document</title>
+    <title>Contact Form</title>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
         <div class="row"> 
             <div class="col s12">
                     <div class="col s12">
-                        <h3 class="center-align">Report Ticket Logs</h3>
+                        <h3 class="center-align">Contact Us!</h3>
                         <div class="divider"></div>
                     </div>                   
             </div>    
@@ -24,33 +24,46 @@
         </div>
 
         <div class="row">
-            <div class="col s7">
+            <div class="col s6">
                 <form  id="insertForm" method="post" autocomplete="off">
-                    <div class="row">
-                        <div class="input-field col s6">                            
-                            <input type="text" id="id" name="id" > 
-                            <label>ID</label>
-                        </div>
-                    </div>
 
                     <div class="row">
                         <div class="input-field col s6">                            
-                            <input type="text" id="name" name="name" > 
-                            <label>Full name</label>
+                            <input type="text" id="name" name="name" required> 
+                            <label>Full Name</label>
                         </div>
-                    </div>
-
-                    <div class="row">
                         <div class="input-field col s6">                            
-                            <input type="text" id="ticket" name="ticket" > 
-                            <label>Ticket Number</label>
+                            <input type="text" id="email" name="email" required> 
+                            <label>E-Mail</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
-                            <input type="text" name="ticket_desc" id="ticket_desc">
-                            <label>Ticket Description</label>
+                            <input type="text" name="phone" id="phone" required>
+                            <label>Phone #</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="address" id="address" required>
+                            <label>Address</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text" name="city" id="city" required>
+                            <label>City</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="province" id="province" required>
+                            <label>Province</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="message" id="message" required maxlength="1000"></textarea>
+                            <label>Message</label>
                         </div>
                     </div>
             
@@ -64,17 +77,16 @@
                   </form>
             </div>
 
-            <div class="col s5">
+            <div class="col s4 offset-s2">
                
                 <div class="row">
                     <ul>
                         <form  id="listrec" method="post" autocomplete="off">
-                            <label for="id">ID:</label>
-                            <input type="text" id="id" name="id"><br><br>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name"><br><br>
     
-                            <button class="btn waves-effect waves-light" id="testbtn">Show list logs</button>
-                        </form>
-                        
+                            <button class="btn waves-effect waves-light" id="testbtn">Check your messages</button>
+                        </form>                     
                     </ul>
                 </div> 
                 
@@ -93,57 +105,41 @@
       <script id="listitems" type="text/x-handlebars-template">
        
         <div class="row" id="logslist">
-            <div class="divider"></div>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Ticket #</th>
-                    <th>Ticket Desc.</th>
-                </tr>
             {{#each data}}
-                <!-- <div class="divider"></div> -->
                 <div class="section">
-                    <!-- <table> -->
-                        <!-- <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Ticket #</th>
-                            <th>Ticket Desc.</th>
-                        </tr> -->
-                        <tr>
-                            <td>{{id}}</td>
-                            <td>{{name}}</td>
-                            <td>{{ticket}}</td>
-                            <td>{{ticket_desc}}</td>
-                        </tr>
-                    <!-- </table> -->
-                    <!-- <table>
-                        <tr>
-                            <th>ID</th>
-                            <td>{{id}}</td>
-                        </tr>
+                    <table>
                         <tr>
                             <th>Name</th>
                             <td>{{name}}</td>
                         </tr>
                         <tr>
-                            <th>Ticket #</th>
-                            <td>{{ticket}}</td>
+                            <th>E-Mail</th>
+                            <td>{{email}}</td>
                         </tr>
                         <tr>
-                            <th>Ticket Desc.</th>
-                            <td>{{ticket_desc}}</td>
+                            <th>Phone #</th>
+                            <td>{{phone}}</td>
                         </tr>
-                    </table> -->
-                    <!-- <h5>ID: {{id}}</h5>
-                    <p>Name: {{name}}</p>
-                    <p>Ticket Number: {{ticket}}</p>
-                    <p>Ticket Description: {{ticket_desc}}</p> -->
-                </div>
-            {{/each}}
-        </table>
-            <a class="waves-effect waves-light btn-small" id="btnclear">clear</a>
+                        <tr>
+                            <th>Address</th>
+                            <td>{{address}}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{city}}</td>
+                        </tr>
+                        <tr>
+                            <th>Province</th>
+                            <td>{{province}}</td>
+                        </tr>
+                        <tr>
+                            <th>Message</th>
+                            <td>{{message}}</td>
+                        </tr>
+                    </table>
+                    </div>
+                {{/each}}
+                <a class="waves-effect waves-light btn-small" id="btnclear">clear</a>
        </div>
 
       </script>
