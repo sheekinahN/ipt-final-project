@@ -219,10 +219,12 @@
                                 if (response.status === "success") {
                                     console.log(response.message)
                                     console.log(response.data)
-                                    var toastHTML = '<span>data was inserted.</span>';
+                                    var toastHTML = '<span>Message sent.</span>';
                                     M.toast({html: toastHTML, classes: 'rounded'});
 
                                     $('input[type="text"]').val('');
+
+                                    $('textarea').val('');
 
                                 }  else if (response.status === "error") {
                                     console.log(response.message)
